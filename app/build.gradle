@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.tonymaces.rxdaggerdemo"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile'com.jakewharton:butterknife:7.0.1'
+
+    //Retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.+'
+    compile 'com.squareup.retrofit2:converter-gson:2.+'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.+'
+
+    //RxAndroid: Reactive Extensions for Android
+    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'io.reactivex:rxandroid:1.2.0'
+
+    //Dagger 2 configuration
+    apt 'com.google.dagger:dagger-compiler:2.2'
+    compile 'com.google.dagger:dagger:2.2'
+    provided 'javax.annotation:jsr250-api:1.0'
+   // provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    compile'com.squareup.picasso:picasso:2.5.2'
+}
